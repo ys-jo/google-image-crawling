@@ -4,6 +4,7 @@ import time
 import urllib.request
 import os
 from selenium.webdriver.common.by import By
+import socket
 
 """
 download chromedriver.exe
@@ -49,8 +50,8 @@ def crawling_img(name):
     createDirectory(dir)
     count = 1
     print(f"total image num: {len(imgs)}")
+    socket.setdefaulttimeout(5)  # 5 seconds
     for img in imgs:
-        print(img)
         try:
             img.click()
             time.sleep(2)
